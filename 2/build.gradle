@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'pl.edu.agh'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repository.ow2.org/nexus/content/repositories/public/"
+    }
+    maven {
+        url "http://mvnrepository.com/artifact/net.sourceforge.jFuzzyLogic/jFuzzyLogic"
+    }
+}
+
+application {
+    mainClassName = 'BreakPowerApp'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    compile group: 'net.sourceforge.jFuzzyLogic', name: 'jFuzzyLogic', version: '1.2.1'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'BreakPowerApp'
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
