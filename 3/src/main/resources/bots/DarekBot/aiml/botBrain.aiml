@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0.1" xmlns="http://alicebot.org/2001/AIML-1.0.1"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://alicebot.org/2001/AIML-1.0.1
+http://aitools.org/aiml/schema/AIML.xsd">
+
+    <category>
+          <pattern>Czesc</pattern>
+          <template>
+             <random>
+                <li> Witaj! Milo Cie poznac, tutaj przedstawiciel Toyota. Oferuje informacje o samochodach ich cenach, oraz jazdach testowych</li>
+                <li> Dzien dobry! Witaj w swiecie Toyoty. Oferuje informacje o samochodach ich cenach, oraz jazdach testowych</li>
+                <li> Hej tutaj salon Toyoty. Czym moge sluzyc? Oferuje informacje o samochodach ich cenach, oraz jazdach testowych</li>
+             </random>
+          </template>
+    </category>
+
+    <category>
+        <pattern>Dzien dobry</pattern>
+        <template><srai>Czesc</srai></template>
+    </category>
+
+    <category>
+        <pattern>Witaj</pattern>
+        <template><srai>Czesc</srai></template>
+    </category>
+
+    <category>
+        <pattern>Mam na imie *</pattern>
+        <template>Bardzo mi milo <set name = "username"> <star/>!</set></template>
+    </category>
+
+    <category>
+        <pattern>Jestem *</pattern>
+        <template>Bardzo mi milo <set name = "username"> <star/>!</set></template>
+    </category>
+
+    <category>
+        <pattern>Nazywam sie *</pattern>
+        <template>Bardzo mi milo <set name = "username"> <star/>!</set></template>
+    </category>
+
+    <category>
+            <pattern>Do widzenia</pattern>
+            <template>
+                <condition>
+                    <li name="username" value="unknown">
+                        <random>
+                            <li> Do widzenia! Bylo mi bardzo milo.</li>
+                            <li> Do zobaczenia! Pozdrawiam.</li>
+                            <li> To byla bardzo mila rozmowa. Pozdrawiam.</li>
+                        </random>
+                    </li>
+                    <li >
+                        <random>
+                            <li>Do widzenia <get name = "username"/>.</li>
+                            <li>Bylo mi bardzo milo <get name = "username"/>.</li>
+                            <li>Mam nadzieje do zaobaczenia <get name = "username"/>.</li>
+                        </random>
+                    </li>
+                </condition>
+            </template>
+    </category>
+
+    <category>
+        <pattern>Do uslyszenia</pattern>
+        <template><srai>Do widzenia</srai></template>
+    </category>
+
+     <category>
+            <pattern>lubie *</pattern>
+            <template>Ja tez bardzo lubie <star/></template>
+     </category>
+
+    <category>
+            <pattern>_ samochody </pattern>
+            <template>Nasze obecne samochody to Toyota Corolla, Yaris, oraz RAV4.</template>
+    </category>
+
+    <category>
+            <pattern> samochody _</pattern>
+            <template>Nasze obecne samochody to Toyota Corolla, Yaris, oraz RAV4.</template>
+    </category>
+
+    <category>
+            <pattern>_ silniki</pattern>
+            <template>Silniki jakie posiadaja nasze samochody to Corolla - 1.2 Turbo D-4T, 1.8 Hybrid, 2.0 Hybrid, Yaris - 1.5 120KM, 1.5 Hybrid, RAV4 - 2.0 Dual, 2.5 Hybrid.</template>
+    </category>
+
+     <category>
+            <pattern>_ nadwozia</pattern>
+            <template>Nadwozia to hatchback, sedan, kombi, oraz suv.</template>
+     </category>
+
+     <category>
+             <pattern>_ kolory</pattern>
+             <template>Gama kolorow jest olbrzymia! Kolor podstawowy to bialy. Mozna wyroznic kolory podstawowe, metaliczne, oraz perlowe.</template>
+     </category>
+
+     <category>
+              <pattern>_ wyposazenie</pattern>
+              <template>Nasze samochody sa bogato wyposazone w automatyczna skrzynie biegow, swiatla led, oraz systemy bezpieczenstwa.</template>
+     </category>
+
+     <category>
+              <pattern>wyposazenie</pattern>
+              <template><srai>_ wyposazenie</srai></template>
+     </category>
+
+     <category>
+         <pattern>kolory</pattern>
+         <template><srai>_ kolory</srai></template>
+     </category>
+
+     <category>
+         <pattern>wyposazenie</pattern>
+         <template><srai>_ wyposazenie</srai></template>
+     </category>
+
+     <category>
+              <pattern>nadwozia</pattern>
+              <template><srai>_ nadwozia</srai></template>
+          </category>
+
+     <category>
+         <pattern>silniki</pattern>
+         <template><srai>_ silniki</srai></template>
+     </category>
+
+
+     <category>
+        <pattern>Jaki *</pattern>
+        <template><srai><star/></srai></template>
+     </category>
+
+     <category>
+         <pattern>Jakie *</pattern>
+         <template><srai>Jaki</srai></template>
+     </category>
+
+     <category>
+          <pattern>ceny</pattern>
+          <template>Ceny naszych samochodow w wersji podstawowej to: Corolla - 70000 zl, Yaris - 50000 zl, RAV4 - 100000 zl.</template>
+     </category>
+
+     <category>
+         <pattern>_ ceny</pattern>
+         <template><srai>ceny</srai></template>
+     </category>
+
+     <category>
+         <pattern>ceny _</pattern>
+         <template><srai>ceny</srai></template>
+     </category>
+
+     <category>
+        <pattern>_ ceny *</pattern>
+        <template><srai>ceny</srai></template>
+     </category>
+
+     <topic name="FIRMA">
+        <category>
+            <pattern>*</pattern>
+            <template>
+                <random>
+                    <li>Chcialbys otrzymac kredyt na samochod?</li>
+                    <li>Czy chcesz wizac samochod w leasing?</li>
+                </random>
+            </template>
+        </category>
+
+        <category>
+            <pattern>Tak _</pattern>
+            <template>Dobrze, przygotuje odpowiednia oferte.</template>
+        </category>
+
+        <category>
+             <pattern>Nie _</pattern>
+            <template><think><set name="topic">*</set></think>Dobrze, przejdzmy do czegos innego</template>
+        </category>
+     </topic>
+
+     <category>
+        <pattern>_ kredyt</pattern>
+        <template><think><set name="topic">FIRMA</set></think>Dobrze porozmawiajmy o formach finansowania</template>
+     </category>
+
+     <category>
+        <pattern>_ leasing</pattern>
+        <template><think><set name="topic">FIRMA</set></think>Dobrze porozmawiajmy o formach finansowania</template>
+     </category>
+
+     <category>
+         <pattern>_ firme</pattern>
+         <template><think><set name="topic">FIRMA</set></think>Dobrze porozmawiajmy o formach finansowania</template>
+     </category>
+
+     <category>
+          <pattern>jazda</pattern>
+          <template>Jakim samochodem chcialbys wykonac jazde probna?<think><set name="topic">TESTOWA</set></think></template>
+     </category>
+
+     <topic name="TESTOWA">
+         <category>
+             <pattern>*</pattern>
+             <template><think><set name="var"><lowercase><star /></lowercase></set></think>
+                 <condition>
+                     <li name="var" value="corolla">Mozliwa jazda Corolla to przyszly piatek. Jaka godzina Cie interesuje?<think><set name="topic">GODZINA</set></think></li>
+                     <li name="var" value="yaris">Mamy dostepna Toyote Yaris w przyszly wtorek. Jaka godzina Cie interesuje?<think><set name="topic">GODZINA</set></think></li>
+                     <li name="var" value="rav4">Toyota RAV4 jest dostepna juz dzisiaj. Jaka godzina Cie interesuje?<think><set name="topic">GODZINA</set></think></li>
+                     <li>Odpowiedz jednym slowem. Mozesz wybrac pomiedzy Corolla, Yaris i RAV4.</li>
+                 </condition>
+             </template>
+         </category>
+     </topic>
+
+     <topic name="GODZINA">
+          <category>
+              <pattern>*</pattern>
+              <template>Zarezerwowane!<think><set name="topic">*</set></think></template>
+          </category>
+     </topic>
+
+     <category>
+        <pattern>*</pattern>
+        <template>Mozemy porozmawiac o wyposazeniu, cenach i jezdzie testowej.<think><set name="topic">BRAKODP</set></think></template>
+     </category>
+
+     <category>
+         <pattern>_ testowa</pattern>
+         <template><srai>jazda</srai></template>
+     </category>
+
+     <category>
+          <pattern>_ probna</pattern>
+          <template><srai>jazda</srai></template>
+     </category>
+
+     <topic name="BRAKODP">
+        <category>
+            <pattern>*</pattern>
+            <template><think><set name="var"><lowercase><star /></lowercase></set></think>
+                <condition>
+                    <li name="var" value="cena"><srai>ceny</srai><think><set name="topic">*</set></think></li>
+                    <li name="var" value="wyposazenie"><srai>wyposazenie</srai><think><set name="topic">*</set></think></li>
+                    <li name="var" value="jazda"><srai>jazda</srai>><think><set name="topic">*</set></think></li>
+                    <li>Odpowiedz jednym slowem. Mozesz wybrac pomiedzy: wyposazenie, cena, jazda.</li>
+                </condition>
+            </template>
+        </category>
+     </topic>
+
+</aiml>

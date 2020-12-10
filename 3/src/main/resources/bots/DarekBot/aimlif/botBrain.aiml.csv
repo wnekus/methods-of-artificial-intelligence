@@ -1,0 +1,38 @@
+0,CZESC,*,*,<random>#Newline                <li> Witaj! Milo Cie poznac#Comma tutaj przedstawiciel Toyota. Oferuje informacje o samochodach ich cenach#Comma oraz jazdach testowych</li>#Newline                <li> Dzien dobry! Witaj w swiecie Toyoty. Oferuje informacje o samochodach ich cenach#Comma oraz jazdach testowych</li>#Newline                <li> Hej tutaj salon Toyoty. Czym moge sluzyc? Oferuje informacje o samochodach ich cenach#Comma oraz jazdach testowych</li>#Newline             </random>,botBrain.aiml
+0,DZIEN DOBRY,*,*,<srai>Czesc</srai>,botBrain.aiml
+0,WITAJ,*,*,<srai>Czesc</srai>,botBrain.aiml
+0,MAM NA IMIE *,*,*,Bardzo mi milo <set name="username"> <star/>!</set>,botBrain.aiml
+0,JESTEM *,*,*,Bardzo mi milo <set name="username"> <star/>!</set>,botBrain.aiml
+0,NAZYWAM SIE *,*,*,Bardzo mi milo <set name="username"> <star/>!</set>,botBrain.aiml
+0,DO WIDZENIA,*,*,<condition>#Newline                    <li name="username" value="unknown">#Newline                        <random>#Newline                            <li> Do widzenia! Bylo mi bardzo milo.</li>#Newline                            <li> Do zobaczenia! Pozdrawiam.</li>#Newline                            <li> To byla bardzo mila rozmowa. Pozdrawiam.</li>#Newline                        </random>#Newline                    </li>#Newline                    <li>#Newline                        <random>#Newline                            <li>Do widzenia <get name="username"/>.</li>#Newline                            <li>Bylo mi bardzo milo <get name="username"/>.</li>#Newline                            <li>Mam nadzieje do zaobaczenia <get name="username"/>.</li>#Newline                        </random>#Newline                    </li>#Newline                </condition>,botBrain.aiml
+0,DO USLYSZENIA,*,*,<srai>Do widzenia</srai>,botBrain.aiml
+0,LUBIE *,*,*,Ja tez bardzo lubie <star/>,botBrain.aiml
+0,_ SAMOCHODY,*,*,Nasze obecne samochody to Toyota Corolla#Comma Yaris#Comma oraz RAV4.,botBrain.aiml
+0,SAMOCHODY _,*,*,Nasze obecne samochody to Toyota Corolla#Comma Yaris#Comma oraz RAV4.,botBrain.aiml
+0,_ SILNIKI,*,*,Silniki jakie posiadaja nasze samochody to Corolla - 1.2 Turbo D-4T#Comma 1.8 Hybrid#Comma 2.0 Hybrid#Comma Yaris - 1.5 120KM#Comma 1.5 Hybrid#Comma RAV4 - 2.0 Dual#Comma 2.5 Hybrid.,botBrain.aiml
+0,_ NADWOZIA,*,*,Nadwozia to hatchback#Comma sedan#Comma kombi#Comma oraz suv.,botBrain.aiml
+0,_ KOLORY,*,*,Gama kolorow jest olbrzymia! Kolor podstawowy to bialy. Mozna wyroznic kolory podstawowe#Comma metaliczne#Comma oraz perlowe.,botBrain.aiml
+0,_ WYPOSAZENIE,*,*,Nasze samochody sa bogato wyposazone w automatyczna skrzynie biegow#Comma swiatla led#Comma oraz systemy bezpieczenstwa.,botBrain.aiml
+0,KOLORY,*,*,<srai>_ kolory</srai>,botBrain.aiml
+0,WYPOSAZENIE,*,*,<srai>_ wyposazenie</srai>,botBrain.aiml
+0,NADWOZIA,*,*,<srai>_ nadwozia</srai>,botBrain.aiml
+0,SILNIKI,*,*,<srai>_ silniki</srai>,botBrain.aiml
+0,JAKI *,*,*,<srai><star/></srai>,botBrain.aiml
+0,JAKIE *,*,*,<srai>Jaki</srai>,botBrain.aiml
+0,CENY,*,*,Ceny naszych samochodow w wersji podstawowej to: Corolla - 70000 zl#Comma Yaris - 50000 zl#Comma RAV4 - 100000 zl.,botBrain.aiml
+0,_ CENY,*,*,<srai>ceny</srai>,botBrain.aiml
+0,CENY _,*,*,<srai>ceny</srai>,botBrain.aiml
+0,_ CENY *,*,*,<srai>ceny</srai>,botBrain.aiml
+0,*,*,FIRMA,<random>#Newline                    <li>Chcialbys otrzymac kredyt na samochod?</li>#Newline                    <li>Czy chcesz wizac samochod w leasing?</li>#Newline                </random>,botBrain.aiml
+0,TAK _,*,FIRMA,Dobrze#Comma przygotuje odpowiednia oferte.,botBrain.aiml
+0,NIE _,*,FIRMA,<think><set name="topic">*</set></think>Dobrze#Comma przejdzmy do czegos innego,botBrain.aiml
+0,_ KREDYT,*,*,<think><set name="topic">FIRMA</set></think>Dobrze porozmawiajmy o formach finansowania,botBrain.aiml
+0,_ LEASING,*,*,<think><set name="topic">FIRMA</set></think>Dobrze porozmawiajmy o formach finansowania,botBrain.aiml
+0,_ FIRME,*,*,<think><set name="topic">FIRMA</set></think>Dobrze porozmawiajmy o formach finansowania,botBrain.aiml
+0,JAZDA,*,*,Jakim samochodem chcialbys wykonac jazde probna?<think><set name="topic">TESTOWA</set></think>,botBrain.aiml
+0,*,*,TESTOWA,<think><set name="var"><lowercase><star/></lowercase></set></think>#Newline                 <condition>#Newline                     <li name="var" value="corolla">Mozliwa jazda Corolla to przyszly piatek. Jaka godzina Cie interesuje?<think><set name="topic">GODZINA</set></think></li>#Newline                     <li name="var" value="yaris">Mamy dostepna Toyote Yaris w przyszly wtorek. Jaka godzina Cie interesuje?<think><set name="topic">GODZINA</set></think></li>#Newline                     <li name="var" value="rav4">Toyota RAV4 jest dostepna juz dzisiaj. Jaka godzina Cie interesuje?<think><set name="topic">GODZINA</set></think></li>#Newline                     <li>Odpowiedz jednym slowem. Mozesz wybrac pomiedzy Corolla#Comma Yaris i RAV4.</li>#Newline                 </condition>,botBrain.aiml
+0,*,*,GODZINA,Zarezerwowane!<think><set name="topic">*</set></think>,botBrain.aiml
+0,*,*,*,Mozemy porozmawiac o wyposazeniu#Comma cenach i jezdzie testowej.<think><set name="topic">BRAKODP</set></think>,botBrain.aiml
+0,_ TESTOWA,*,*,<srai>jazda</srai>,botBrain.aiml
+0,_ PROBNA,*,*,<srai>jazda</srai>,botBrain.aiml
+0,*,*,BRAKODP,<think><set name="var"><lowercase><star/></lowercase></set></think>#Newline                <condition>#Newline                    <li name="var" value="cena"><srai>ceny</srai><think><set name="topic">*</set></think></li>#Newline                    <li name="var" value="wyposazenie"><srai>wyposazenie</srai><think><set name="topic">*</set></think></li>#Newline                    <li name="var" value="jazda"><srai>jazda</srai>&gt;<think><set name="topic">*</set></think></li>#Newline                    <li>Odpowiedz jednym slowem. Mozesz wybrac pomiedzy: wyposazenie#Comma cena#Comma jazda.</li>#Newline                </condition>,botBrain.aiml
